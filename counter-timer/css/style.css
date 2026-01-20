@@ -37,3 +37,17 @@ button {
   font-size: 1.5rem;
   margin: 20px;
 }
+
+.timer-items,
+.counter-items  {
+  transition: transform 0.2s ease;
+}
+
+.timer-items :active,
+.counter-items :active {
+  transform: scale(0.97);
+}
+
+button:hover {
+  opacity: 0.8;
+}

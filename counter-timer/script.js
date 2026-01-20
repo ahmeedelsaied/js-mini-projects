@@ -10,15 +10,24 @@ function updateDisplay() {
   counterDisplay.textContent = count;
 }
 
+function animate(element) {
+  element.style.transform = "scale(1.2)";
+  setTimeout(() => {
+    element.style.transform = "scale(1)";
+  }, 150);
+}
+
 incrementButton.addEventListener("click", () => {
   count++;
   updateDisplay();
+  animate(counterDisplay);
 });
 
 decrementButton.addEventListener("click", () => {
   if (count > 0) {
     count--;
     updateDisplay();
+    animate(counterDisplay);
   }
 });
 resetButton.addEventListener("click", () => {
@@ -62,3 +71,39 @@ resetTimerButton.addEventListener("click", () => {
 // Initialize displays
 updateDisplay();
 updateTimerDisplay();
+
+// add keyboard support for counter
+document.addEventListener("keydown", (e) => {
+  // Counter
+  if (e.key === "ArrowUp") {
+    count++;
+    counterDisplay.innerText = count;
+    animate(counterDisplay);
+  }
+
+  if (e.key === "ArrowDown") {
+    if (count > 0) {
+      count--;
+      counterDisplay.innerText = count;
+      animate(counterDisplay);
+    }
+  }
+
+  // Timer
+  if (e.key === " ") {
+    if (interval) {
+      clearInterval(interval);
+      interval = null;
+    } else {
+      interval = setInterval(() => {
+        seconds++;
+        updateTimerDisplay();
+      }, 1000);
+    }
+  }
+
+  if (e.key === "r") {
+    seconds = 0;
+    updateTimerDisplay();
+  }
+});
