@@ -1,0 +1,39 @@
+body {
+  background: #111;
+  color: white;
+  font-family: Arial;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+
+.container {
+  display: flex;
+  gap: 40px;
+}
+
+.timer-items,
+.counter-items {
+  background: #222;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  width: 250px;
+
+}
+
+button {
+  margin: 5px;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#counter-title,
+#timer-title {
+  font-size: 1.5rem;
+  margin: 20px;
+}
