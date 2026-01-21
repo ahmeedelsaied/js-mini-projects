@@ -1,24 +1,31 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Modal System</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Modal System</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <button data-modal="modal1">Open Modal 1</button>
+    <button data-modal="modal2">Open Modal 2</button>
 
-<button id="openModal">Open Modal</button>
+    <!-- Overlay -->
+    <div class="overlay hidden"></div>
 
-<!-- Overlay -->
-<div class="overlay hidden"></div>
+    <!-- Modal 1 -->
+    <div class="modal hidden" id="modal1">
+      <h2>First Modal</h2>
+      <p>This is first modal window</p>
+      <button class="closeBtn">Close</button>
+    </div>
 
-<!-- Modal -->
-<div class="modal hidden">
-  <h2>Modal Title</h2>
-  <p>This is reusable modal component.</p>
-  <button id="closeModal">Close</button>
-</div>
+    <!-- Modal 2 -->
+    <div class="modal hidden" id="modal2">
+      <h2>Second Modal</h2>
+      <p>This is second modal window</p>
+      <button class="closeBtn">Close</button>
+    </div>
 
-<script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>

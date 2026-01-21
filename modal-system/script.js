@@ -1,36 +1,54 @@
-const openBtn = document.getElementById("openModal");
-const closeBtn = document.getElementById("closeModal");
-const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
+const openButtons = document.querySelectorAll("[data-modal]");
+const closeButtons = document.querySelectorAll(".closeBtn");
 
-function openModal() {
-  modal.classList.remove("hidden");
+let activeModal = null;
+
+// Open Modal (Reusable)
+function openModal(modalId) {
+  activeModal = document.getElementById(modalId);
+
+  activeModal.classList.remove("hidden");
   overlay.classList.remove("hidden");
 
+  document.body.classList.add("lock-scroll");
+
   setTimeout(() => {
-    modal.classList.add("active");
+    activeModal.classList.add("active");
   }, 10);
 }
 
+// Close Modal
 function closeModal() {
-  modal.classList.remove("active");
+  if (!activeModal) return;
+
+  activeModal.classList.remove("active");
 
   setTimeout(() => {
-    modal.classList.add("hidden");
+    activeModal.classList.add("hidden");
     overlay.classList.add("hidden");
+    document.body.classList.remove("lock-scroll");
+    activeModal = null;
   }, 200);
 }
 
-// Open
-openBtn.addEventListener("click", openModal);
+// Open buttons
+openButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const modalId = btn.dataset.modal;
+    openModal(modalId);
+  });
+});
 
-// Close button
-closeBtn.addEventListener("click", closeModal);
+// Close buttons
+closeButtons.forEach((btn) => {
+  btn.addEventListener("click", closeModal);
+});
 
 // Click outside
 overlay.addEventListener("click", closeModal);
 
-// ESC key close
+// ESC close
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
     closeModal();
