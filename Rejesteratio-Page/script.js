@@ -59,6 +59,7 @@ signupForm.addEventListener("submit", (e) => {
 
   setTimeout(() => {
     localStorage.setItem("userEmail", email);
+    localStorage.setItem("userPassword", password);
     alert("Account Created Successfully 🎉");
     signupBtn.innerHTML = "Sign Up";
     container.classList.remove("right-panel-active");
@@ -68,6 +69,8 @@ signupForm.addEventListener("submit", (e) => {
 // =======================
 // Sign In Validation
 // =======================
+fname = document.getElementById("fname");
+LName = document.getElementById("LName");
 
 signinForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -86,9 +89,10 @@ signinForm.addEventListener("submit", (e) => {
 
   setTimeout(() => {
     const savedEmail = localStorage.getItem("userEmail");
+    const savedPassword = localStorage.getItem("userPassword");
 
-    if (email === savedEmail) {
-      alert("Welcome Back 😎");
+    if (email === savedEmail && password === savedPassword) {
+      alert(`Welcome Back ${fname.value} ${LName.value} 😊`);
     } else {
       alert("Wrong Email Or Password ❌");
     }
