@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>css changer application</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>change the css properties of the box using the inputs below</h2>
+      <span>javaScript</span>
+      <div class="css-prop">
+        <label for="base">Base Color: </label>
+        <input type="color" id="base" name="base" value="#ff0000" />
+        <label for="width">width</label>
+        <input
+          type="range"
+          id="width"
+          name="width"
+          min="0"
+          max="100"
+          value="50"
+        />
+        <label for="height">height</label>
+        <input
+          type="range"
+          id="height"
+          name="height"
+          min="0"
+          max="100"
+          value="50"
+        />
+        <label for="border-radius">border-radius</label>
+        <input
+          type="range"
+          id="border-radius"
+          name="border-radius"
+          min="0"
+          max="100"
+          value="50"
+        />
+        <label for="opacity">opacity</label>
+        <input
+          type="range"
+          id="opacity"
+          name="opacity"
+          min="0.1"
+          max="1.0"
+          step=".1"
+          value=".8"
+        />
+        <img src="https://cdn.pixabay.com/photo/2026/01/18/10/16/parakeet-10074499_1280.jpg" alt="Sample Image"  id="preview">
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
